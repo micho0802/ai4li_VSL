@@ -210,3 +210,6 @@ out/
 .DS_Store
 Thumbs.db
 /.claude/
+fer2013/checkpoints/
+fer2013/**/__pycache__/
+*.pyc
