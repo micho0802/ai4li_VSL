@@ -1,0 +1,52 @@
+# ==================================
+# Data Configuration
+# ==================================
+data:
+  train_root: "/home/mich02/Desktop/Disability_project_Vietnam/ai4li_VSL/data/train"
+  test_root: "/home/mich02/Desktop/Disability_project_Vietnam/ai4li_VSL/data/test"
+  img_size: 256
+  batch_size: 16
+  val_split: 0.3
+  num_workers: 4
+  seed: 42
+
+# ==================================
+# Model Configuration
+# ==================================
+model:
+  arch: "resnet50"
+  pretrained: true
+  dropout: 0.3
+  freeze_backbone: false
+
+# ==================================
+# Optimization Configuration
+# ==================================
+optimizer:
+  name: "AdamW"
+  lr: 3e-4
+  weight_decay: 1e-4
+
+loss:
+  name: "CrossEntropyLoss"
+  label_smoothing: 0.1
+
+scheduler:
+  name: "ReduceLROnPlateau"
+  mode: "min"
+  factor: 0.1
+  patience: 3
+
+# ==================================
+# Training Configuration
+# ==================================
+training:
+  epochs: 100
+  early_stopping_patience: 10
+
+# ==================================
+# Experiment / Output
+# ==================================
+output:
+  save_dir: "checkpoints/resnet50"
+  run_name: "resnet50_fer2013_run1"
